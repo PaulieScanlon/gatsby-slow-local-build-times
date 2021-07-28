@@ -4,7 +4,10 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-pages`,
-        path: `${__dirname}/src/content`
+        path:
+          process.env.NODE_ENV === `development`
+            ? `${__dirname}/src/content/2021`
+            : `${__dirname}/src/content`
       }
     },
     `gatsby-transformer-remark`
